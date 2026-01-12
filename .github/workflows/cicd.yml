@@ -42,5 +42,6 @@ jobs:
         
         - name: Deploy to Server
           run: |
+            pm2 stop "Server" || true
             pm2 delete "Server" || true
             pm2 start "npm run start" --name="Server" 
